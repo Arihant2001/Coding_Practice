@@ -1,0 +1,159 @@
+{
+	"": {
+		"prefix": "jklasd",
+		"body": [
+			"//Author:- 100duodecillion",
+			"#include<bits/stdc++.h>",
+			"using namespace std;",
+			"#define int long long",
+			"#define pb push_back",
+			"#define all(x) x.begin(), x.end()",
+			"#define rall(x) x.rbegin(), x.rend()",
+			"#define pi 3.141592",
+			"typedef vector<int> vec;",
+			"int32_t main(){",
+			"    ios_base::sync_with_stdio(0),cin.tie(0);",
+			"    int a;",
+			"    cin>>a;",
+			"    return 0;",
+			"}"
+		],
+		"description": ""
+	},
+	"#1":{
+		"prefix": "iop",
+		"body": [
+			"#include<bits/stdc++.h>",
+			"using namespace std;",
+			"int main(){",
+			"}"
+		],
+		"description": ""
+	},
+	"#2":{
+		"prefix": "prime",
+		"body": [
+			"bool isPrime(int n){",
+			"    if(n<=1){",
+			"        return false;",
+			"    }",
+			"    if(n<=3){",
+			"        return true;",
+			"    }",
+			"    if(n%2==0 || n%3==0){",
+			"        return false;",
+			"    }",
+			"    for(int i=5;i*i<=n;i+=6){",
+			"        if(n%i==0 || n%(i+2)==0){",
+			"            return false;",
+			"        }",
+			"    }",
+			"    return true;",
+			"}", 
+		],
+		"description": ""
+	},
+	"#3":{
+		"prefix": "hcf",
+		"body": [
+			"int Hcf(int a,int b){",
+			"    int hcf=1;",
+			"    for(int i=1;i<=a && i<=b;++i){",
+			"        if(a%i==0 && b%i==0){",
+			"            hcf=i;",
+			"        }",
+			"    }",
+			"    return hcf;",
+			"}",
+		],
+		"description": ""
+	},
+	"#4":{
+		"prefix": "factors",
+		"body": [
+			"vector<int>factors(int num){",
+			"    vector<int>a;",
+			"    for(int i=1;i<=num/2;i++){",
+			"        if(num%i==0){",
+			"            a.push_back(i);",
+			"        }",
+			"    }",
+			"    return a;",
+			"}",
+		],
+		"description": ""
+	},
+	"#5":{
+		"prefix": "erase substr",
+		"body": [
+			"void removeSubstr(string &s,const string &p){",
+			"    string::size_type n=p.length();",
+			"    for(string::size_type i=s.find(p);i!=string::npos;i=s.find(p)){",
+			"        s.erase(i,n);",
+			"    }",
+			"    /*b=;",
+			"    removeSubstr(a,b);",
+			"    cout<<a;*/",
+			"}",
+		],
+		"description": ""
+	},
+	"#6":{
+		"prefix": "replace string",
+		"body": [
+			"string replace(string& subject,const string& search,const string& replace){",
+			"    size_t pos=0;",
+			"    while((pos=subject.find(search, pos))!=string::npos){",
+			"        subject.replace(pos,search.length(),replace);",
+			"        pos+=replace.length();",
+			"    }",
+			"    return subject;",
+			"}",
+		],
+		"description": ""
+	},
+	"#7":{
+		"prefix": "binary",
+		"body": [
+			"vec bin;",
+			"for(int k=31;k>=0;k--){",
+			"    if(x&(1<<k)){",
+			"        bin.pb(1);",
+			"    }",
+			"    else{",
+			"        bin.pb(0);",
+			"    }",
+			"}",
+		],
+		"description": ""
+	},
+	"#8":{
+		"prefix": "bnm",
+		"body": [
+			"<!DOCTYPE html>",
+			"<html>",
+			"    <head>",
+			"        <title></title>",
+			"    </head>",
+			"    <body>",
+			"        ",
+			"    </body>",
+			"</html>",
+		],
+		"description": ""
+	},
+	"#9":{
+		"prefix": "max subarray sum",
+		"body": [
+			"int subsum(vector<int>allnum){",
+			"    int best=0,sum=0;",
+			"    for(int k=0;k<allnum.size();k++){",
+			"        sum=max(allnum[k],sum+allnum[k]);",
+			"        best=max(best,sum);",
+			"    }",
+			"    return best;",
+			"}",
+		],
+		"description": ""
+	}
+}

@@ -26,13 +26,18 @@ bool primeFactors(int n)
 	return (sum&1) ? 0 : 1;
 }
 void solve(){
-    int n, c=0;
+    int n, ans=0;
     cin>>n;
-    if(n%2==1){
-        cout<<"1\n";
-        return;
+    vec v(n),h;
+    for(int i=0;i<n;i++)    cin>>v[i];
+    h=v;
+    sort(all(h));
+    if(h[0]==v[0] and (h[n-1]==v[n-1] or (h[n-1]==v[n-2] and h[n-2]==v[n-1])))   ans=1;
+    if(n%2==0){
+        if(h[0]==v[1] and h[1]==v[0] and h[n-1]==v[n-1])   ans=1;
+        else if(h[0]==v[1] and h[1]==v[0] and h[n-1]==v[n-2] and h[n-2]==v[n-1])   ans=1;
     }
-    primeFactors(n)==true ? cout<<"2\n" : cout<<"-1\n";
+    ans==1 ? cout<<"YES\n" : cout<<"NO\n";
 }
 
 int32_t main(){

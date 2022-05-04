@@ -8,15 +8,11 @@ using namespace std;
 #define pi 3.141592
 typedef vector<int> vec;
 
-void solve(){
-    int n,m,x;
-    cin>>n>>m>>x;
-    x<m ? cout<<(n*x)/(x+1)<<"\n" : cout<<"0\n";
-}
-
 int32_t main(){
-    ios_base::sync_with_stdio(0),cin.tie(0);
-    int t;
-    cin>>t;
-    while(t--){solve();}
+    string s;
+    cin>>s;
+    vector<pair<string,int>>v(1,{"",s.size()});
+    for(int i=s.size()-1;i>=0;i--)  v.pb({s.substr(i,s.size()-i),i});
+    sort(all(v));
+    for(auto i:v)   cout<<i.second<<" ";
 }

@@ -9,11 +9,12 @@ using namespace std;
 typedef vector<int> vec;
 
 void solve(){
-	int n;
-	cin>>n;
-	vec v(n),arr;
-	for(int i=0;i<n;i++)  cin>>v[i];
-	
+	int n,m;
+	cin>>n>>m;
+	vec v(n);
+	int mn=INT_MIN, sum=0;
+	for(int i=0;i<n;i++)	cin>>v[i], mn=max(mn,v[i]), sum+=ceil(float(v[i])/m);
+	cout<<min(mn,sum)<<"\n";
 }
 
 int32_t main(){

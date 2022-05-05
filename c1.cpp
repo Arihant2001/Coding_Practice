@@ -9,12 +9,34 @@ using namespace std;
 typedef vector<int> vec;
 
 void solve(){
-	int n,m;
-	cin>>n>>m;
-	vec v(n);
-	int mn=INT_MIN, sum=0;
-	for(int i=0;i<n;i++)	cin>>v[i], mn=max(mn,v[i]), sum+=ceil(float(v[i])/m);
-	cout<<min(mn,sum)<<"\n";
+	int n;
+    cin>>n;
+    vec v(n);
+    int ans=0;
+    for(int i=0;i<n;i++)    cin>>v[i];
+	if(n==1)	ans=0;
+	else if(v[n-1]==0)	ans=-1;
+	else{
+		for(int i=n-2;i>=0;i--){
+			if(v[i]==0 and i!=0){
+				cout<<"-1\n";
+				return;
+			}
+			else{
+				if(v[i]>=v[i+1]){
+					v[i]/=2;
+					ans++;
+					i++;
+				}
+				else
+				{
+					continue;
+				}
+				
+			}
+		}
+	}
+	cout<<ans<<"\n";
 }
 
 int32_t main(){

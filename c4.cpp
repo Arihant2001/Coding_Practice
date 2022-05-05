@@ -7,37 +7,36 @@ using namespace std;
 #define rall(x) x.rbegin(), x.rend()
 #define pi 3.141592
 typedef vector<int> vec;
-bool primeFactors(int n)
-{
-    int c=2;
-	int sum=0;
-	map<int,int> mp;
-    while(n>1)
-    {
-        if(n%c==0){
-			mp[c]++;
-        n/=c;
-        }
-        else c++;
+vector<string> ope(string s, int k){
+    string m;
+    vector<pair<string,char>>v;
+    for(int i=0;i<s.size();i++){
+        if(s[i]-'a'<=k)     m = max(m,s[i]), s[i] = 'a';
     }
-	for(auto i : mp){
-		sum+=i.first + i.second;
-	}
-	return (sum&1) ? 0 : 1;
+    return {s,m};
 }
 void solve(){
-    int n, ans=0;
-    cin>>n;
-    vec v(n),h;
-    for(int i=0;i<n;i++)    cin>>v[i];
-    h=v;
-    sort(all(h));
-    if(h[0]==v[0] and (h[n-1]==v[n-1] or (h[n-1]==v[n-2] and h[n-2]==v[n-1])))   ans=1;
-    if(n%2==0){
-        if(h[0]==v[1] and h[1]==v[0] and h[n-1]==v[n-1])   ans=1;
-        else if(h[0]==v[1] and h[1]==v[0] and h[n-1]==v[n-2] and h[n-2]==v[n-1])   ans=1;
+    int n,k;
+    cin>>n>>k;
+    string s;
+    cin>>s;
+    while(k>1){
+        vector<string>v = ope(s,k);
+        s = v[0];
+        k -= v[1][0]-'a';
     }
-    ans==1 ? cout<<"YES\n" : cout<<"NO\n";
+    cout<<s<<"\n";
+    // cout<<s[0]-'a'+1<<"\n";
+    // if(k==s[0]-'a'){
+    //     for(int i=0;i<n;i++)    if(s[i]<=s[0])  s[i]-=s[0]-'a';
+    // }
+    // else if(k>s[0]-'a'){
+    //     for(int i=0;i<n;i++){
+    //         if(s[i]-'a'<=k){
+    //             s[i]='a';
+    //         }
+    //     }
+    // }
 }
 
 int32_t main(){

@@ -9,18 +9,16 @@ using namespace std;
 typedef vector<int> vec;
 
 void solve(){
-    int n;
-    cin>>n;
-    vec v(n);
-    double sum=0.0;
-    for(int i=0;i<n;i++)    cin>>v[i];
-    if(n==1){
-        cout<<v[0]<<"\n";
+    string s;
+    cin>>s;
+    int n=s.size(), o=-1, z=n, ans=0;
+    for(int i=0;i<n;i++)        if(s[i]=='1')   o=i;
+    for(int i=n-1;i>=0;i--)     if(s[i]=='0')   z=i;
+    if(o==-1 and z==n){
+        cout<<n<<"\n";
         return;
     }
-    sort(all(v));
-    for(int i=0;i<n-1;i++)  sum+=v[i];
-    cout<<setprecision(6)<<double((double(sum)/(n-1))+v.back())/2<<"\n";
+    o==-1 or z==n ? o==-1 ? cout<<z+1<<"\n" : cout<<n-o<<"\n" : cout<<z-o+1<<"\n";
 }
 
 int32_t main(){

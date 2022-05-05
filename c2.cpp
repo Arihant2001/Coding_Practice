@@ -9,9 +9,11 @@ using namespace std;
 typedef vector<int> vec;
 
 void solve(){
-    int n,m,x;
-    cin>>n>>m>>x;
-    x<m ? cout<<(n*x)/(x+1)<<"\n" : cout<<"0\n";
+    int a,b,c,x,y;
+    cin>>a>>b>>c>>x>>y;
+    x>=a ? x-=a : x=0;
+    y>=b ? y-=b : y=0;
+    c>=x+y ? cout<<"YES\n" : cout<<"NO\n";
 }
 
 int32_t main(){

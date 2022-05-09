@@ -8,10 +8,10 @@ using namespace std;
 #define pi 3.141592
 typedef vector<int> vec;
 vector<string> ope(string s, int k){
-    string m;
+    int m;
     vector<pair<string,char>>v;
     for(int i=0;i<s.size();i++){
-        if(s[i]-'a'<=k)     m = max(m,s[i]), s[i] = 'a';
+        if(s[i]-'a'<=k)     m = max(m-'a',s[i]-'a'), s[i] = 'a';
     }
     return {s,m};
 }

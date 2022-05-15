@@ -18,7 +18,24 @@ using namespace std;
 int mod = 1e9 + 7;
 
 void solve(){
-    
+    int n,m;
+    cin>>n>>m;
+    vec v(n);
+    from(i,0,n)     cin >> v[i];
+    dec(v);
+    int ans = 2*v[0];
+    from(i,0,n){
+        from(j,0,n){
+            if(v[i]-v[j] < m){
+                int u = (v[i]-v[j]) % m;
+                if(v[i] < v[j])     u += m;
+                ans = max(ans, v[i]+v[j]+u);
+            }
+            else{break;}
+        }
+        if(2*v[i] < ans){break;}
+    }
+    cout<<ans<<"\n";
 }
 
 int32_t main(){

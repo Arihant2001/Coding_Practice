@@ -18,7 +18,11 @@ using namespace std;
 int mod = 1e9 + 7;
 
 void solve(){
-	
+	int w,x,y,z;
+	cin>>w>>x>>y>>z;
+	if((y*z)+w>x)	cout<<"overflow\n";
+	else if((y*z)+w<x)	cout<<"unfilled\n";
+	else	cout<<"filled\n";
 }
 
 int32_t main(){

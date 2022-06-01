@@ -1,52 +1,49 @@
 // Author: Arihant Jain
 #include<bits/stdc++.h>
 using namespace std;
-#define pb push_back
-#define int long long
-#define vec vector<int>
-#define vs vector<string>
-#define ull unsigned long long
-#define all(x) x.begin(),x.end()
-#define rall(x) x.rbegin(),x.rend()
-#define inc(x) sort(x.begin(),x.end())
-#define dec(x) sort(x.rbegin(),x.rend())
-#define from(i,a,b) for(int i=a;i<b; i++)
-#define rfrom(i,a,b) for(int i=a;i>=b;i--)
+template<typename T> istream& operator>>(istream& is, vector<T> &v){for(auto& i:v) is >> i;        return is;}
+template<typename T> ostream& operator<<(ostream& os, vector<T>  v){for(auto& i:v) os << i << ' '; return os;}
+#define fo(i,a,b) for(int i=a; a<b ? i<b : i>=b; a<b ? i++ : i--)
+#define ff first
+#define rr return
+#define ss second
+#define pi 3.141592
 #define imn INT_MIN
 #define imx INT_MAX
-#define pi 3.141592
-int mod = 1e9 + 7;
+#define pb push_back
+#define int long long
+#define mkp make_pair
+#define vv vector<vec>
+#define mod 1000000007
+#define vec vector<int>
+#define mint map<int,int>
+#define vs vector<string>
+#define inc(x) sort(all(x))
+#define dec(x) sort(rall(x))
+#define ull unsigned long long
+#define all(x) x.begin(),x.end()
+#define vp vector<pair<int,int>>
+#define rall(x) x.rbegin(),x.rend()
+#define mine(x) *min_element(all(x))
+#define maxe(x) *max_element(all(x))
+#define mini(x) min_element(all(x))-x.begin()
+#define maxi(x) max_element(all(x))-x.begin()
+#define ecd(x) x.erase(unique(all(x)),x.end())
+#define lb(x,y) lower_bound(all(x),y)-x.begin()
+#define ub(x,y) upper_bound(all(x),y)-x.begin()
 
 void solve(){
-    int n,m;
-    cin>>n>>m;
-    vec v(n);
-    from(i,0,n)     cin >> v[i];
-    dec(v);
-    // int h=0;
-    // from(i,1,n){
-    //     if(v[0]-v[i] > m){
-    //         h = i;
-    //         break;
-    //     }
-    // }
-    // from(i,1,h){
-
-    // }
-    int fa=0;
-    from(i,1,n){
-        int ans1=0,ans2=0;
-        int a=m+ ((v[i]-v[0])%m), a1=(v[0]-v[i])%m;
-        ans1= (v[i]!=v[0] ? v[0]+v[i]+max(a,a1) : v[0]+v[i]);
-        v.erase(unique(all(v)),v.end());
-        if(v.size()>=2){
-            int ac=m+ ((v[1]-v[0])%m), ac1=(v[0]-v[1])%m;
-            ans2=v[0]+v[1]+max(ac,ac1);
-        }
-        else    ans2 = 2*v[0];
-        fa=max(fa,max(ans1,ans2));
+    int n;
+    cin>>n;
+    vec v(n),h;
+    map<int,vec>mp;
+    fo(i,0,n)   cin>>v[i], mp[v[i]].pb(i+1);
+    for(auto i:mp){
+        if(i.ss.size()==1){cout<<"-1\n";rr;}
+        reverse(1 + all(i.ss));
+        h.insert(h.end(), rall(i.ss));
     }
-    cout << fa<<"\n";
+    cout<<h<<'\n';
 }
 
 int32_t main(){
